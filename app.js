@@ -18,6 +18,7 @@ app.get('/', async (req, res) => {
     // Para PNG, se usa "compressionLevel" (0-9) donde 9 es la máxima compresión
     const outputBuffer = await sharp(buffer)
       .png({ compressionLevel: 9, adaptiveFiltering: true })
+      .resize(180, 180)
       .toBuffer();
 
     // 3. Convertir el buffer resultante a base64 y formatearlo como Data URI
